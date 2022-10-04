@@ -14,6 +14,10 @@ module.exports = {
       minHeight: px0_500,
       spacing: px0_500,
       borderRadius: px0_10},
+    fontFamily: {
+      nanum: ['Nanum Gothic Coding', 'monospace'],
+      baemin: ['Yeon Sung', 'cursive'],
+    }
   },
   plugins: [],
 }
