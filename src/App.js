@@ -34,19 +34,19 @@ const reducer = (state, action) => {
 
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
+export const nowDate = dayjs();
 
 function App() {
-
   const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
-  const nowDate = dayjs().format('YYYY-MM-DD ddd HH:mm:ss');
+  const createDate = nowDate.format('YYYY.MM.DD HH:mm:ss')
 
   //CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({
       type: 'CREATE', data: {
         id: dataId.current,
-        date: nowDate,
+        date: createDate,
         content,
         emotion,
       }
@@ -65,7 +65,7 @@ function App() {
       type: 'EDIT',
       data: {
         id: targetId,
-        date: nowDate,
+        date: createDate,
         content,
         emotion,
       }
