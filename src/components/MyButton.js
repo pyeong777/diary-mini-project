@@ -12,6 +12,10 @@ const btnTextColors = {
     negative: 'white'
 }
 
+const btnSize = {
+    positive: '100%',
+}
+
 const MyButton = ({ text, type, onClick }) => {
     return (
         <button
@@ -19,10 +23,13 @@ const MyButton = ({ text, type, onClick }) => {
                 padding: '10px 20px',
                 border: 'none',
                 borderRadius: '5px',
-                fontSize: '18px',
+                fontSize: '15px',
                 whiteSpace: 'nowrap',
                 backgroundColor: btnBgColors[type],
                 color: btnTextColors[type],
+                width: btnSize[type],
+                cursor: "pointer",
+                fontFamily: 'Nanum Gothic Coding, monospace',
             }}
             onClick={onClick} >
             {text}
