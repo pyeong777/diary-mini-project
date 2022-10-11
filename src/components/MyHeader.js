@@ -3,7 +3,6 @@ import { css } from '@emotion/react'
 
 const headerWrap = css({
     padding: '20px 0',
-    margin: '0 20px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
