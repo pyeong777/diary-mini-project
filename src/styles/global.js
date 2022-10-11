@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { Global, css } from '@emotion/react';
 
-const GlobalStyle = createGlobalStyle`
+const style = css`
 /* http://meyerweb.com/eric/tools/css/reset/ 
 v2.0 | 20110126
 License: none (public domain)
@@ -61,7 +61,12 @@ body {
 #root {
     background-color: white;
     box-shadow: 0 7px 29px 0 rgb(100 100 111 / 0.2);
+    
 }
 `;
+
+const GlobalStyle = () => {
+    return <Global styles={style} />;
+}
 
 export default GlobalStyle;
