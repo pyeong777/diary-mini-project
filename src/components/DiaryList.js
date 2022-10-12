@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MyButton from './MyButton';
@@ -18,18 +19,7 @@ const filterOptionList = [
 
 const ControlMenu = ({ value, onChange, optionList }) => {
     return (
-        <select css={{
-            marginRight: '10px',
-            border: 'none',
-            borderRadius: '5px',
-            backgroundColor: '#ececec',
-            padding: '10px 20px',
-            cursor: 'pointer',
-            textAlign: 'center',
-            fontSize: '16px',
-            fontFamily: 'Nanum Gothic Coding, monospace',
-
-        }} value={value} onChange={(e) => onChange(e.target.value)}>
+        <select css={selectBox} value={value} onChange={(e) => onChange(e.target.value)}>
             {optionList.map((it, idx) => (
                 <option key={idx} value={it.value}>
                     {it.name}
@@ -68,23 +58,14 @@ const DiaryList = ({ diaryList }) => {
         return sortedList;
     }
 
-
-
     return (
         <div>
-            <div css={{
-                marginTop: '20px',
-                marginBottom: '30px',
-                display: 'flex',
-                justifyContent: 'space-between',
-            }}>
+            <div css={listContainer}>
                 <div>
                     <ControlMenu value={sortType} onChange={setSortType} optionList={sortOptionList} />
                     <ControlMenu value={filter} onChange={setFilter} optionList={filterOptionList} />
                 </div>
-                <div css={{
-                    flexGrow: '1',
-                }}>
+                <div css={btnBox}>
                     <MyButton type={'positive'} text={'새 일기쓰기'} onClick={() => navigate('./new')} />
                 </div>
             </div >
@@ -102,3 +83,26 @@ DiaryList.defaultProps = {
 }
 
 export default DiaryList;
+
+const listContainer = css({
+    marginTop: '20px',
+    marginBottom: '30px',
+    display: 'flex',
+    justifyContent: 'space-between',
+})
+
+const selectBox = css({
+    marginRight: '10px',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: '#ececec',
+    padding: '10px 20px',
+    cursor: 'pointer',
+    textAlign: 'center',
+    fontSize: '16px',
+    fontFamily: 'Nanum Gothic Coding, monospace',
+})
+
+const btnBox = css({
+    flexGrow: '1',
+})
